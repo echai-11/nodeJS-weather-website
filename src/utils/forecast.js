@@ -9,10 +9,12 @@ const forecast = (latitude, longitude, callback) => {
 			callback('Unable to connect to find location. Try another search.', undefined);
 		} else {
 			const dailySummary = body.daily.data[0].summary;
-			const temp = " The temperature is " + body.currently.temperature + " degrees out. ";
-			const rain = "There is a " + body.currently.precipProbability + "% chance of rain.";
+			const temp = " The temperature is " + body.currently.temperature + " degrees out.";
+			const rain = " There is a " + body.currently.precipProbability + "% chance of rain.";
+			const tempHigh = " Temperature is expected to be as high as " + body.daily.data[0].temperatureHigh + " degrees.";
+			const tempLow =  " Temperature is expected to be as low as " + body.daily.data[0].temperatureLow + " degrees."
 			callback(undefined, {
-				forecast: dailySummary + temp + rain,
+				forecast: dailySummary + temp + rain + tempHigh + tempLow,
 			});
 		}
 	});

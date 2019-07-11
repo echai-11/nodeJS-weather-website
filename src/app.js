@@ -39,13 +39,13 @@ app.get('/help', (req,res)=>{
 	res.render('help',{
 		title: 'Help',
 		name: 'Lizzie Chai',
-		help: 'this is some long text about where you can find help'
+		help: 'This is where you can find help.'
 	});
 })
 app.get('/weather', (req,res)=>{
 	if (!req.query.address){
 		return res.send({
-			error: 'You must provide a location'
+			error: 'You must provide a location.'
 		})
 	}
 	geocode(req.query.address,(error,{latitude, longitude, location} = {})=>{
